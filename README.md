@@ -1,6 +1,15 @@
-Instructions:
+You Mock Me
+===========
+
+Learn how to use `unittest.mock` through a series of tests.
+
+
+Instructions
+------------
 
 Go through each exercise in the `exercises` directory. Add code between the
-`#####` to get the test to pass.
+`#####` lines to get the tests to pass.
 
-Run `make test` to see if you got it working
+Run `make test` to run the tests. To run just the test for an exercise, run
+`make test/<n>`. So for example, if you're working on excercise_9.py, you would
+run `make test/9`.
