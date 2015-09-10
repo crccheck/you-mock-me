@@ -1,5 +1,9 @@
 from unittest import TestCase
-import mock
+try:
+    from unittest import mock
+except:
+    # Python 2
+    import mock
 
 from example.thing import Foo
 
