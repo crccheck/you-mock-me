@@ -17,6 +17,7 @@ class ExcerciseTests(TestCase):
         obj = Foo()
 
         # BEGIN
+        mock_thing.return_value = 'xyzzy'
         # END
 
         self.assertEqual(obj.thing(), 'xyzzy')

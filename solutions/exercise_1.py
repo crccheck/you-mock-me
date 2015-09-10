@@ -14,6 +14,7 @@ class ExcerciseTests(TestCase):
         foo = mock.MagicMock()
 
         # BEGIN
+        foo.bar = 'xyzzy'
         # END
 
         self.assertEqual(foo.bar, 'xyzzy')
@@ -22,6 +23,7 @@ class ExcerciseTests(TestCase):
         foo = mock.MagicMock()
 
         # BEGIN
+        foo.bar.return_value = 'xyzzy'
         # END
 
         self.assertEqual(foo.bar(), 'xyzzy')
@@ -30,6 +32,11 @@ class ExcerciseTests(TestCase):
         foo = mock.MagicMock()
 
         # BEGIN
+        foo.bar.side_effect = [
+            'remember',
+            'the',
+            'alamo',
+        ]
         # END
 
         self.assertEqual(foo.bar(), 'remember')
@@ -40,6 +47,7 @@ class ExcerciseTests(TestCase):
         foo = mock.MagicMock()
 
         # BEGIN
+        foo.bar.side_effect = AttributeError
         # END
 
         with self.assertRaises(AttributeError):
@@ -49,6 +57,11 @@ class ExcerciseTests(TestCase):
         foo = mock.MagicMock()
 
         # BEGIN
+        foo.bar.side_effect = [
+            'remember',
+            'the',
+            KeyError,
+        ]
         # END
 
         self.assertEqual(foo.bar(), 'remember')
@@ -59,5 +72,6 @@ class ExcerciseTests(TestCase):
     def test_mock_with_chained_calls(self):
         foo = mock.MagicMock()
         # BEGIN
+        foo.bar.return_value.baz.return_value = 'xyzzy'
         # END
         self.assertEqual(foo.bar().baz(), 'xyzzy')
