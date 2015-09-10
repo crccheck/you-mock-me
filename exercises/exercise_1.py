@@ -1,3 +1,6 @@
+"""
+mock.patch
+"""
 from unittest import TestCase
 try:
     from unittest import mock
