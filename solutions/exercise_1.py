@@ -1,5 +1,5 @@
 """
-mock.patch
+Explore the mock.MagicMock object.
 """
 from unittest import TestCase
 try:
@@ -29,6 +29,7 @@ class ExcerciseTests(TestCase):
         self.assertEqual(foo.bar(), 'xyzzy')
 
     def test_mock_side_effect_as_multiple_returns(self):
+        # https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.side_effect
         foo = mock.MagicMock()
 
         # BEGIN
@@ -71,7 +72,9 @@ class ExcerciseTests(TestCase):
 
     def test_mock_with_chained_calls(self):
         foo = mock.MagicMock()
+
         # BEGIN
         foo.bar.return_value.baz.return_value = 'xyzzy'
         # END
+
         self.assertEqual(foo.bar().baz(), 'xyzzy')
